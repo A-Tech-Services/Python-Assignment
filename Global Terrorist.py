@@ -3,6 +3,7 @@
 # LEVEL: 200L
 # COURSE: CSC 235
 # DEPARTMENT: COMPUTER SCIENCE
+# GITHUB LINK: https://github.com/A-Tech-Services/Python-Assignment.git
 
 import matplotlib.pyplot as plt
 
@@ -18,17 +19,23 @@ def global_terrorist() -> dict:
     # Open and Read the text file to a variable all_terrorist
     terror_text = open('Terrorist.txt', 'r')
     all_terrorist = terror_text.readlines()
-    terror_text.close() # Close the file after usage
+    terror_text.close()
+
     # Get the total feature of terrorist from the first line {index 0}
     total_terror = int(all_terrorist[0])
+
     # Create serial number for the  feature (starting from 1)
     sno = list(range(1, total_terror+1))
+
     # Create a list that will hold the feature later on
     terrorist = [0]*total_terror
+
     # Create a list that will hold the sum of the feature later on
     terror_sum = [0]*total_terror
+
     # Create a list that will hold the id of similar feature later on
     similarity_id = [0]*total_terror
+
     # Get all features and sum of the features into their variables respectively
     for counter in range(1, total_terror+1):
         # This line will get all features into the terrorist multidimentional list
@@ -36,6 +43,7 @@ def global_terrorist() -> dict:
         terrorist[counter-1] = all_terrorist[counter].strip('\n').split(',')
         # This line will sum up the feature and add it to its corresponding index
         terror_sum[counter-1] = sum([int(i) for i in terrorist[counter-1]])
+
     # This block will check similarity between features and put in their currensponding similarity id respectively
     for i in range(total_terror):
         for j in range(total_terror):
@@ -125,4 +133,3 @@ if __name__ == '__main__':
     print('\n\n')
     occurence_table(data)
     occurence_graph(data)
-    
